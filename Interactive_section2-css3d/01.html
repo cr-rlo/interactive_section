@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60vw; /*뷰포트 너비의 60%*/
+            height: 60vh; /*뷰포트 높이의 60%*/
+            background: #fff000;
+            perspective: 500px; /*원근감 설정, 숫자가 작을수록 원근감이 강해짐, 3d 공간과 같은 느낌*/
+		}
+		.card {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 150px;
+			border-radius: 0.5em; /*em은 현재 글자 크기에 비례, rem은 최상위 요소 글자 크기에 비례*/
+			font-size: 1.5rem;
+			background: red;
+			transform: rotateY(45deg);
+			/* transform: perspective(500px) rotateY(45deg); */ /*perspective를 개별 요소에 적용할 수도 있지만, 부모 요소에 적용하는 것이 일반적, 개별요소에 적용하면 요소들이 똑같이 변형됨*/
+		}
+    </style>
+</head>
+<body>
+    <div class="world">
+      <div class="card">CARD</div>
+      <div class="card">CARD</div>
+      <div class="card">CARD</div>
+		<div class="card">A</div>
+		<div class="card">B</div>
+		<div class="card">C</div>
+    </div>
+</body>
+</html>

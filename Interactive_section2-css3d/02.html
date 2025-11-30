@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60vw;
+            height: 60vh;
+            background: #fff000;
+            perspective: 500px;
+        }
+        .card {
+            position: relative;
+            width: 100px;
+            height: 150px;
+            margin: 1em;
+            transform: rotateY(0deg);
+            /*이 경우 디폴트 값과 변화가 없는 값도 설정해주면 좋다*/
+            transition: 1s;
+            transform-style: preserve-3d; /*3D 공간에서 '자식 요소들'이 제대로 보이도록 설정*/
+            transform-origin: left; /*회전 축을 카드의 왼쪽으로 설정, 문이 열리듯이*/
+        }
+        .card-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute; /*부모 요소를 기준으로 위치 지정, 여기서는 카드 앞뒤를 겹치려고 설정*/
+            left: 0;
+            top: 0;
+            width: 100%; /*부모 요소인 .card의 너비와 높이를 100%로 설정*/
+            height: 100%; /*부모 요소인 .card의 너비와 높이를 100%로 설정*/
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            backface-visibility: hidden; /*뒤집혔을 때 보이지 않도록 설정 -> 앞 면들만 보이게 돼서 앞 뒷면이 있는 카드 구현 가능*/
+        }
+        .card-side-front {
+            z-index: 1;
+            background: white;
+        }
+        .card-side-back {
+            background: red;
+            transform: rotateY(180deg); /*뒤집힌 상태로 시작 -> 겹쳤을 때 문제없음*/
+        }
+        .world:hover .card {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="world">
+        <div class="card">
+            <div class="card-side card-side-front">F</div>
+            <div class="card-side card-side-back">B</div>
+        </div>
+    </div>
+</body>
+</html>
