@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+        body {
+            background: #222;
+        }
+        @keyframes spaceship-ani {
+            to {
+                background-position: -2550px 0;
+            }
+        }
+        .spaceship {
+            width: 150px;
+            height: 150px;
+            background: url('images/sprite_spaceship.png') no-repeat 0 0 /*background position영역을 나타내는 숫자*/ / cover; /*cover는 이미지가 요소를 꽉 채우도록 함, 혹은 auto 150px(원 이미지 크기의 높이 1/2)를 사용하면 더 선명한 이미지 구현 가능*/
+            animation: spaceship-ani 1s infinite steps(17); /*steps는 프레임 수, 17은 이미지 프레임 수와 동일하게 맞춤*/
+        }
+    </style>
+</head>
+<body>
+    <div class="spaceship"></div>
+</body>
+</html>
