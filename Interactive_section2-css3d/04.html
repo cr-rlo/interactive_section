@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Flex</title>
+  <style>
+    .container{
+      display: flex;
+      flex-direction: column; /*row가 기본값*/
+      justify-content: flex-end;/*주 축(가로축) 방향 정렬 설정, 기본값: flex-start*/
+      align-items: flex-start; /*교차 축(세로축) 방향 정렬 설정 -> 쉽게 생각하자면 주 축의 수직방향, 기본값: stretch*/
+      height: 80vh;
+      background: gray;
+
+    }
+    .item{
+      flex-grow: 1; /*남는 공간을 동일하게 나누기. 각각 숫자를 다른값으로 주면 그 비율만큼 나눠가짐. 여백의 비율을 뜻함*/
+      flex-basis: 0; /*기본 크기 설정, 0으로 설정하면 flex-grow가 제대로 동작 -> 원래 점유하는 폭이 0으로 인식되면서 여백이 동일하게 인식되니까*/
+      flex-shrink: 0;
+      /*flex: 1 0 0; 위 세개 속성을 한꺼번에 설정하는 방법*/
+      padding: 2em;
+      border:3px solid black;
+      background: white
+    }
+  </style>
+</head>
+<body>
+  <div class="container"> 
+    <!-- 원래 값: display block, -->
+    <div class="item">AAA</div>
+    <div class="item">B</div>
+    <div class="item">CCCCCC</div>
+    <div class="item">DDD</div>
+    <div class="item">E</div>
+  </div>
+</body>
+</html>
