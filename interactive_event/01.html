@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event Delegation</title>
+</head>
+<body>
+  <div class="menu">
+    <button class="menu-btn" data-value="1">
+      <img class = "icon" src="../images/ilbuni1.png" alt="">
+      <span class ="btn-label">Ilbuni 1</span>
+    </button>
+    <button class="menu-btn" data-value="2">
+      <img class = "icon" src="../images/ilbuni2.png" alt="">
+      <span class ="btn-label">Ilbuni 2</span>
+    </button>
+    <button class="menu-btn" data-value="3">
+      <img class = "icon" src="../images/ilbuni3.png" alt="">
+      <span class ="btn-label">Ilbuni 3</span>
+    </button>
+    <script>
+      const menu = document.querySelector('.menu');
+      function clickHandler(e){
+        let elem = e.target;
+        while(!elem.classList.contains('menu-btn')){
+          //!는 not 의미. 즉, menu-btn 클래스를 포함하지 않는 동안 계속 반복
+          elem = elem.parentNode;}
+          //부모 요소로 거슬러 올라가면서 menu-btn 클래스를 가진 요소를 찾음
+          if (elem.nodeName == 'BODY'){
+            elem = null;
+            return;
+            //만약 body 요소에 도달했는데도 menu-btn 클래스를 찾지 못하면 null 반환
+          }
+      }
+
+
+        //e.target.dataset.value
+        //e.target.getAttribute('data-value')
+     
+      menu.addEventListener('click', clickHandler)
+
+      
+      
+    </script>
+  </div>
+</body>
+</html>

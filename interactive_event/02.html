@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      padding: 20px;
+      border: 5px solid black;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="elem1" data-id="about">
+    <div class="elem2">
+      <div class="elem3">
+        elem3
+      </div>
+    </div>
+  </div>
+  <script>
+    const elem1 = document.querySelector('.elem1');
+    elem1.addEventListener('click', e =>{
+      //console.log(e.target.dataset.id);
+      console.log(e.target.closest('.elem1'))
+      //e.target.closest() 메서드는 특정 셀렉터와 일치하는 가장 가까운 조상 요소(자기 자신 포함)를 반환
+    });
+  </script>
+</body>
+</html>

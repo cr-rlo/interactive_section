@@ -1,0 +1,23 @@
+const pElem = document.createElement('p');
+///Add text to the paragraph element///
+pElem.innerHTML = '<a href="#">This is a link</a>';
+///Append the paragraph element to the body///
+const charactersElem = document.querySelector('.characters');
+///캐릭터스 클래스 선택///
+charactersElem.appendChild(pElem);
+///자식요소 추가///
+charactersElem.removeChild(document.querySelector('.b'));
+///자식요소 제거///
+
+
+const ilbuni = document.querySelector('.ilbuni');
+///일부니 처음 클래스 선택///
+ilbuni.classList.add('special');
+///기존 클래스 놔두고 special 클래스 추가///
+ilbuni.className = 'special';
+///일부니 클래스와 a클래스에 있던 것 없어지고 special 클래스만 남음///
+const ilbuni = document.querySelector('.ilbuni');
+ilbuni.classList.remove('ilbuni');
+///special 클래스 제거///
+ilbuni.classList.toggle('ilbuni');
+///일부니 클래스가 없으면 추가, 있으면 제거///

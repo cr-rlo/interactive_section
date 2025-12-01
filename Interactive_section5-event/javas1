@@ -1,0 +1,32 @@
+///<script>///
+window.addEventListener('load',function(){
+  ///페이지 로드 완료 후 실행 비슷한걸로 'DOMContentLoaded'///
+  const ilbuni= document.querySelector('.ilbuni:nth-child(3)');
+/// 일부니 세 번째 클래스 선택 -> 이벤트를 발생시킬 클래스 선택///
+  ilbuni.addEventListener('click',function(){
+    ilbuni.classList.add('special');
+  })
+///일부니 세 번째 클래스 선택 후 클릭 이벤트 감지 -> special 클래스 추가///
+  function clickIlbuniHandler(){
+    ilbuni.classList.togle('special');
+  }
+  ilbuni.addEventListener('click',clickIlbuniHandler);
+///일부니 세 번째 클래스 선택 후 클릭 이벤트 감지 -> special 클래스 토글///
+});
+  
+///</script>///
+
+/// 그러나 전역변수를 피하기 위해 함수로 감싸는 방법도 있다. ///
+(function() {
+  const ilbuni= document.querySelector('.ilbuni:nth-child(3)');
+/// 일부니 세 번째 클래스 선택 -> 이벤트를 발생시킬 클래스 선택///
+  ilbuni.addEventListener('click',function(){
+    ilbuni.classList.add('special');
+  })
+///일부니 세 번째 클래스 선택 후 클릭 이벤트 감지 -> special 클래스 추가///
+  function clickIlbuniHandler(){
+    ilbuni.classList.togle('special');
+  }
+  ilbuni.addEventListener('click',clickIlbuniHandler);
+})(); ///즉시 실행 함수/// 
+///그냥 함수 없이 const부터 처음과 끝을 {}로 감싸도 가능///

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive WEB</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/02.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="ilbuni a"></div>
+    <div class="ilbuni b"></div>
+    <div class="ilbuni c"></div>
+    <div class="ilbuni d"></div>
+  </div>
+  <script>
+    (function(){
+      const ilbuniGroup = document.querySelectorAll('.ilbuni');
+      const stage = document.querySelector('.stage'); 
+      function clickhandler(){
+        stage.removeChild(this);
+        ///this.parentNode.removeChild(this);  위와 동일
+      }
+      for (let i = 0; i < ilbuniGroup.length; i++) {
+        ilbuniGroup[i].addEventListener('click',clickhandler)
+      }
+    })();
+  </script>
+</body>
+</html>
