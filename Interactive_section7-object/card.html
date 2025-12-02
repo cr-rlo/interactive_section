@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object</title>
+    <style>
+    .card {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 150px;
+        border: 2px solid black;
+        border-radius: 10px;
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    </style>
+</head>
+<body>
+    <script>
+    function Card(num, color) {
+        this.num = num;
+        this.color = color;
+        this.init(); //메서드(함수) 호출
+    }
+
+    Card.prototype = {//프로토타입에 메서드 추가. prototype는 모든 인스턴스가 공유
+        constructor: Card, //prototype 객체의 constructor 속성을 원래대로 설정
+        init: function() {//메서드 정의
+            const mainElem = document.createElement('div'); //div 요소 생성
+            mainElem.style.color = this.color;//글자 색상 설정
+            mainElem.innerHTML = this.num;//내용 설정. 숫자 넣기
+            mainElem.classList.add('card'); //CSS 클래스 추가
+            document.body.appendChild(mainElem);//body에 추가
+        }
+    };
+
+    const card1 = new Card(1, 'green');
+    const card2 = new Card(7, 'blue');
+    </script>
+</body>
+</html>

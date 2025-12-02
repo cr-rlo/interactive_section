@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const person ={ //객체 리터럴
+      name : '일분이', //속성
+      age : 10,
+      greet : function(){ //메서드(함수)
+        console.log('안녕하세요? 저는 ' + this.name + '이고, ' + this.age + '살이에요.');
+      }
+    }
+    const name = '일분이';
+    const age = 10;
+    console.log( '안녕하세요? 저는 ' + name + '이고 ' + age + '살이에요.' );
+    console.log( `안녕하세요? 저는 ${name}이고, ${age}살이에요.` );//템플릿 리터럴 백틱을 사용한 표현법
+
+    const elemHtml = ''
+      + '<div class="character">'
+        + '캐릭터'
+      + '</div>';//문자열 연결법
+    
+    const elemHtml2 = `
+      <div class="character">
+        캐릭터
+      </div>
+    `;//템플릿 리터럴을 사용한 표현법
+    
+    document.body.innerHTML = elemHtml2;
+
+    //생성자 (constructor) 함수 이름은 대문자로 시작하는 것이 관례
+    function Person(name, age){
+      this.name = name;//속성
+      this.age = age;
+      /*this.greet = function(){
+        console.log('안녕하세요? 저는 ' + this.name + '이고, ' + this.age + '살이에요.');
+      }각 속성을 인스턴스가 가지게 돼서 메모리 낭비의 가능성
+      공통된 greet은 공유하도록하면 훨씬 메모리 절약*/
+    }
+
+    Person.prototype.greet = function(){
+      console.log('안녕하세요? 저는 ' + this.name + '이고, ' + this.age + '살이에요.');
+    } //프로토타입에 메서드 추가. prototype는 모든 인스턴스가 공유
+
+    //인스턴스 생성 new 키워드 사용하면 생성자 함수 호출
+    const person1 = new Person('일분이',10); 
+    const person2 = new Person('이분이',20);
+
+    person1.greet();
+    person2.greet();  
+
+  </script>
+</body>
+</html>
