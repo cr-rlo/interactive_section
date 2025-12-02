@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Transition/Animation Event</title>
+  <style>
+  .ball {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: red;
+    transition: 2s;/*모든 속성에 대해 2초 동안 트랜지션 적용*/
+  }
+  .ball.end {
+    background: dodgerblue;
+  }
+  </style>
+</head>
+<body>
+  <div class="ball"></div>
+
+  <script>
+  const ballElem = document.querySelector('.ball');
+
+  window.addEventListener('click', function (e) {
+    ballElem.style.transform = 'translate(' + (e.clientX - 15) + 'px, ' + (e.clientY - 15) + 'px)';// clientX/Y: 뷰포트 기준 좌표
+    // 공의 가운데가 클릭한 지점에 오도록 조정
+  });
+
+  ballElem.addEventListener('transitionstart', function (e) {// 트랜지션이 시작될 때 발생하는 이벤트
+    ballElem.classList.add('end');
+    console.log(e.elapsedTime); // 경과 시간(초)
+    console.log(e.propertyName); // 트랜지션이 적용된 CSS 속성 이름
+  });
+  // transitionend
+  // transitionstart
+  </script>
+</body>
+</html>
