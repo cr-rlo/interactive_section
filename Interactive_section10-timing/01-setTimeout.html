@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>setTimeout</title>
+	<style>
+		.btn {
+			font-size: 2rem;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">취소</button>
+
+	<script>
+		let timeId;
+		const btn = document.querySelector('.btn');
+
+		function sample() {
+			console.log('sample!');
+		}
+
+		timeId = setTimeout(sample, 3000);
+		// 3초 후 sample 함수 실행
+
+		btn.addEventListener('click', function () {
+			clearTimeout(timeId);// 타이머 취소
+		});
+
+		setTimeout(function () {
+			console.log('3초 경과 후 실행되는 코드');
+		}, 3000);
+	</script>
+</body>
+</html>
