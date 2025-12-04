@@ -100,14 +100,15 @@ body[data-char='ragirl'] {
     background: #00a8ff;
 }
 
-/* character */
-.character {
+/* character css */
+.character { /* 캐릭터 전체 컨테이너 */
     position: absolute;
     left: 12%;
     bottom: 5%;
     width: 10vw;
     height: 15.58vw;
     transform-style: preserve-3d;
+    /* 상위 엘리먼트에 적용된 효과가 자식 엘리먼트에도 적용되도록 설정 */
 }
 .character[data-direction='forward'] { transform: rotateY(180deg); }
 .character[data-direction='backward'] { transform: rotateY(0deg); }
@@ -129,19 +130,23 @@ body[data-char='ragirl'] {
     background-size: cover;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    /* 뒷면이 보이지 않도록 설정 */
 }
 .character-face.face-back {
     transform: rotateY(180deg);
 }
 .character-head {
     left: calc(42 / 856 * 100%);
+    /* 캐릭터 전체 컨테이너 기준 왼쪽에서 42/856 지점에 위치, 그 값을 퍼센트로 변환 */
     top: 0;
     z-index: 60;
     width: calc(770 / 856 * 100%);
+    /* 캐릭터 머리 크기 비율 */
     height: calc(648 / 1334 * 100%);
     transform-origin: center bottom;
+    /* 순서대로 x축, y축. 회전 기준점을 머리 중앙 하단으로 설정 -> 목이 움직이는 느낌을 구현하기 위해*/
     animation: ani-head 0.6s infinite alternate cubic-bezier(0.46, 0.18, 0.66, 0.93);
-}
+}/* 애니매이션 이름 ani-head, 지속시간 0.6초, 무한 반복, 앞뒤로 반복, 속도 곡선 설정(가속도) */
 .character-head-face.face-front { background-image: url('../images/ilbuni_head_front.png'); }
 .character-head-face.face-back { background-image: url('../images/ilbuni_head_back.png'); }
 .character-torso {
@@ -190,6 +195,9 @@ body[data-char='ragirl'] {
 }
 .character-leg-left .face-front { background-image: url('../images/ilbuni_leg_1.png'); }
 .character-leg-left .face-back { background-image: url('../images/ilbuni_leg_0.png'); }
+
+
+/* 달리기 애니메이션 */
 .character.running .character-leg-right { animation: ani-running-leg 0.2s alternate infinite linear; }
 .character.running .character-leg-left { animation: ani-running-leg 0.2s alternate-reverse infinite linear; }
 .character.running .character-arm { animation: ani-running-arm 0.2s alternate infinite linear; }

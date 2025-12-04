@@ -28,9 +28,11 @@
     window.addEventListener('resize', resizeHandler);
 
     stageElem.addEventListener('click', function (e) {
-        new Character({
+        new Character({ // 클릭하면 객체 캐릭터 생성
             xPos: e.clientX / window.innerWidth * 100,
+            // 그 객체는 xPos 속성에 마우스 클릭한 위치의 퍼센트 값을 가짐
             speed: Math.random() * 0.5 + 0.2
+            // 속도를 랜덤하게 설정
         });
     });
 
