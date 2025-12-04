@@ -1,0 +1,90 @@
+.body {
+  -wevkit-overflow-scrolling: touch; /*모바일에서 스크롤 부드럽게*/
+  color: #555;
+  background: #fff000;
+  height:500vw; /*스크롤 생성을 위한 높이 설정*/
+}
+
+
+
+
+.world {
+  perspective: 1000px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d; /* 실제로 3d효과가 적용되는 공간까지 전달되도록 하는 속성 즉, 워드에 넣은 퍼스펙티브가 스테이지를 거쳐 하우스까지 전달되록 함 */
+}
+.house {
+  transform: translatez(-490vw); /*퍼스펙티브의 중심점을 집의 중앙으로 이동, 줌아웃*/
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+.wall {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+}
+.wall-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.wall-title {
+  font-size: 5rem; /*rem은 최상위 요소의 폰트를 기준으로 함 */
+  
+}
+.wall-left {
+  background: #f8f8f8;
+  left: -500vw; /*벽의 왼쪽면이 보이도록 위치 조정 */
+  width: 1000vw;
+  transform: rotateY(90deg) /*벽을 세우고 집의 왼쪽으로 이동 */
+
+}
+.wall-right {
+  background: #f8f8f8;
+  left: -500vw; 
+  width: 1000vw;
+  transform: rotateY(90deg) translateZ(100vw); /*벽을 세우고 집의 오른쪽으로 이동 */
+}
+.wall-front-a {
+  transform: translateZ(300vw);
+}
+.wall-front-b {
+  transform: translateZ(50vw);
+}
+.wall-front-c {
+  transform: translateZ(-200vw);
+}
+.wall-front-d {
+  transform: translateZ(-500vw);
+}
+.progress-bar-con {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: #00a8ff;
+}
+
